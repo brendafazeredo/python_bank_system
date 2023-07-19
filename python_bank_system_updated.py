@@ -60,30 +60,30 @@ def show_statement(balance, /, *, statement):
 
 
 def create_user(users):
-    cpf = input("Enter the CPF (numbers only): ")
-    user = filter_user(cpf, users)
+    ssn = input("Enter the SSN (xxx-xx-xxxx): ")
+    user = filter_user(ssn, users)
 
     if user:
-        print("\n=== A user with this CPF already exists! ===")
+        print("\n=== A user with this SSN already exists! ===")
         return
 
     name = input("Enter the full name: ")
     birth_date = input("Enter the birth date (mm-dd-yyyy): ")
     address = input("Enter the address (street, number - neighborhood - city/state abbreviation): ")
 
-    users.append({"name": name, "birth_date": birth_date, "cpf": cpf, "address": address})
+    users.append({"name": name, "birth_date": birth_date, "ssn": ssn, "address": address})
 
     print("=== User created successfully! ===")
 
 
-def filter_user(cpf, users):
-    filtered_users = [user for user in users if user["cpf"] == cpf]
+def filter_user(ssn, users):
+    filtered_users = [user for user in users if user["ssn"] == ssn]
     return filtered_users[0] if filtered_users else None
 
 
 def create_account(agency, account_number, users):
-    cpf = input("Enter the user's CPF: ")
-    user = filter_user(cpf, users)
+    ssn = input("Enter the user's SSN (xxx-xx-xxxx): ")
+    user = filter_user(ssn, users)
 
     if user:
         print("\n=== Account created successfully! ===")
@@ -156,6 +156,5 @@ def main():
 
         else:
             print("Invalid operation, please select the desired operation again.")
-
 
 main()
