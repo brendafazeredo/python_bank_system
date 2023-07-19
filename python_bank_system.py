@@ -60,7 +60,7 @@ while True:
         print("==============================================")
 
     elif option == "q":
-        print("Thank you for using our services. Have a nice day!")
+        print("Thank you for using our services. Have a nice day!!!")
         break
 
     else:
