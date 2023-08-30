@@ -1,6 +1,5 @@
 import textwrap
 
-
 def menu():
     menu = """\n
     ================ MENU ================
@@ -14,7 +13,6 @@ def menu():
     => """
     return input(textwrap.dedent(menu))
 
-
 def deposit(balance, value, statement, /):
     if value > 0:
         balance += value
@@ -24,7 +22,6 @@ def deposit(balance, value, statement, /):
         print("\n=== Operation failed! The entered value is invalid. ===")
 
     return balance, statement
-
 
 def withdraw(*, balance, value, statement, limit, num_withdrawals, withdrawal_limit):
     exceeded_balance = value > balance
@@ -51,13 +48,11 @@ def withdraw(*, balance, value, statement, limit, num_withdrawals, withdrawal_li
 
     return balance, statement
 
-
 def show_statement(balance, /, *, statement):
     print("\n================ STATEMENT ================")
     print("No transactions have been made." if not statement else statement)
     print(f"\nBalance:\t$ {balance:.2f}")
     print("==========================================")
-
 
 def create_user(users):
     ssn = input("Enter the SSN (xxx-xx-xxxx): ")
@@ -75,11 +70,9 @@ def create_user(users):
 
     print("=== User created successfully! ===")
 
-
 def filter_user(ssn, users):
     filtered_users = [user for user in users if user["ssn"] == ssn]
     return filtered_users[0] if filtered_users else None
-
 
 def create_account(agency, account_number, users):
     ssn = input("Enter the user's SSN (xxx-xx-xxxx): ")
@@ -91,7 +84,6 @@ def create_account(agency, account_number, users):
 
     print("\n=== User not found, account creation process terminated! ===")
 
-
 def list_accounts(accounts):
     for account in accounts:
         line = f"""\
@@ -101,7 +93,6 @@ def list_accounts(accounts):
         """
         print("=" * 100)
         print(textwrap.dedent(line))
-
 
 def main():
     WITHDRAWAL_LIMIT = 3
