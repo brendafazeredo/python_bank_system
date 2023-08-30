@@ -54,7 +54,6 @@ class Withdrawal(Transaction):
             account._statement += f"Withdrawal:\t$ {self.value:.2f}\n"
             print("\n=== Withdrawal successful! ===")
 
-
 class Account(Client):
     def __init__(self, agency, account_number, user):
         self._balance = 0
